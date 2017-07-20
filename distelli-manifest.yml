@@ -13,8 +13,8 @@ nrowlan/distelli-playground:
 
   PreStart:
     - case "$DISTELLI_ENV" in
-    -     production|qa|staging)
-    -       echo faking migrations
+    -     deploy-app)
+    -       echo faking prestart of app
     -     ;;
     - esac
   Start:
