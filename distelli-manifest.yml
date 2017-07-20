@@ -15,6 +15,7 @@ nrowlan/distelli-playground:
     - case "$DISTELLI_ENV" in
     -     deploy-app)
     -       echo faking prestart of app
+    -       exit 1
     -     ;;
     - esac
   Start:
