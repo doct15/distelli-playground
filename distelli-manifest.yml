@@ -27,11 +27,11 @@ nrowlan/distelli-playground:
     -     deploy-app)
     -       echo pretending to deploy new app version
     -       rm -f /tmp/django-running*
-    -       touch /tmp/django-running-$DISTELLI_RELVERSION
+    -       touch /tmp/django-running-$DISTELLI_RELVERSION-$DISTELLI_BUILDNUM
     -     ;;
     -     postdeploy-start-celery)
     -       # start celery in end-deploy on celery host
     -       echo pretending to start new celery version
-    -       touch /tmp/celery-started-$DISTELLI_RELVERSION
+    -       touch /tmp/celery-started-$DISTELLI_RELVERSION-$DISTELLI_BUILDNUM
     -     ;;
     - esac
