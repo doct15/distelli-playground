@@ -1,0 +1,37 @@
+nrowlan/distelli-playground:
+  PreBuild:
+    - echo faking prebuild
+
+  Build:
+    - echo faking build
+ 
+  PreRelease:
+    - echo faking prerelease
+
+  AfterBuildSuccess:
+    - echo fake build success
+
+  PreStart:
+    - case "$DISTELLI_ENV" in
+    -     production|qa|staging)
+    -       echo faking migrations
+    -     ;;
+    - esac
+  Start:
+    - echo "ENVIRONMENT => ${DISTELLI_ENV}"
+    - case "${DISTELLI_ENV}" in
+    -     predeploy-stop-celery)
+    -       echo pretending to stop celery
+    -       rm -f /tmp/celery-started
+    -     ;;
+    -     deploy-app)
+    -       echo pretending to start app
+    -       rm -f /tmp/django-running*
+    -       touch /tmp/django-running-${DISTELLI_BUILDNUM}
+    -     ;;
+    -     postdeploy-start-celery)
+    -       # start celery in end-deploy on celery host
+    -       echo pretending to start celery
+    -       touch /tmp/celery-started
+    -     ;;
+    - esac
