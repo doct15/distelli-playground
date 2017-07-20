@@ -14,8 +14,7 @@ nrowlan/distelli-playground:
   PreStart:
     - case "$DISTELLI_ENV" in
     -     predeploy-stop-celery)
-    -       echo failure of prestart before stopping celery
-    -       exit 1
+    -       echo prestart before stopping celery
     -     ;;
     - esac
   Start:
