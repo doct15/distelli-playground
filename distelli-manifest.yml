@@ -34,4 +34,16 @@ nrowlan/distelli-playground:
     -       echo pretending to start new celery version
     -       touch /tmp/celery-started-$DISTELLI_RELVERSION-$DISTELLI_BUILDNUM
     -     ;;
+    -     production-approval)
+    -       # create a tag to trigger prodution release
+    -       env
+    -       release_tag=release-$(date +%Y%m%d%H%M%S)
+    -       echo "tagging docker image br-$DISTELLI_RELBRANCH-$DISTELLI_RELVERSION-$DISTELLI_BUILDNUM-$DISTELLI_RELREVISION as $release_tag"
+    -       if ! cd "$APP_REPO_DIR"; then git clone $APP_REPO $APP_REPO_DIR; else git pull; fi
+    -       cd $APP_REPO_DIR
+    -       git checkout $DISTELLI_RELREVISION
+    -       git tag "$release_tag"
+    -       git push origin "$release_tag"
+    -       git checkout "$DISTELLI_RELBRANCH"
+    -     ;;
     - esac
