@@ -1,5 +1,5 @@
 nrowlan/distelli-playground-prod:
-  PreRelease:
+  Build:
     - env
     - echo production release of $DISTELLI_RELBRANCH
     - echo "pulling tag $DISTELLI_RELBRANCH (all layers should already exist)"
