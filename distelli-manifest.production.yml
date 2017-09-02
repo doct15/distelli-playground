@@ -2,7 +2,6 @@ nrowlan/distelli-playground-prod:
   PreRelease:
     - env
     - echo production release of $DISTELLI_RELBRANCH
-    - echo current tag is $(git tag -l --points-at HEAD)
     - echo "pulling tag $DISTELLI_RELBRANCH (all layers should already exist)"
 
   PreStart:
