@@ -1,4 +1,4 @@
-nrowlan/distelli-playground-production:
+nrowlan/distelli-playground-prod:
   PreRelease:
     - env
     - echo production release of $DISTELLI_RELBRANCH
