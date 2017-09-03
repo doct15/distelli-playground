@@ -1,8 +1,10 @@
 nrowlan/distelli-playground-prod:
   Build:
     - env
+    - git status
     - echo production release of $DISTELLI_RELBRANCH
     - echo "pulling tag $DISTELLI_RELBRANCH (all layers should already exist)"
+    - git checkout $DISTELLI_RELREVISION
 
   PreStart:
     - env
