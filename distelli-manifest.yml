@@ -40,7 +40,7 @@ nrowlan/distelli-playground:
     -       if ! cd "$APP_REPO_DIR"; then git clone $APP_REPO $APP_REPO_DIR; else git pull; fi
     -       cd $APP_REPO_DIR
     -       git -c advice.detachedHead=false checkout $DISTELLI_RELREVISION
-    -       git tag "$release_tag"
+    -       git tag -a "$release_tag" -m "created $release_tag"
     -       git push origin "$release_tag"
     -       git checkout "$DISTELLI_RELBRANCH"
     -     ;;
