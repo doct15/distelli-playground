@@ -3,8 +3,15 @@ nrowlan/distelli-playground-prod:
     - env
     - git status
     - echo production release of $DISTELLI_RELBRANCH
+    - if [[ "$(git tag -l --points-at HEAD)" == "" ]]; then
+    -     echo "not a tagged commit; exiting without creating release"
+    -     exit 1
+    - else
+    -     echo "found release tag, creating release for automatic deployment..."
+    - fi
+    -
     - echo "pulling tag $DISTELLI_RELBRANCH (all layers should already exist)"
-    - git checkout -b $DISTELLI_RELBRANCH
+    - git checkout -b $DISTELLI_RELBRANCH # workaround for tag build environment bug
 
   PreStart:
     - env
