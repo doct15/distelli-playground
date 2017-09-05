@@ -1,14 +1,6 @@
 nrowlan/distelli-playground-prod:
   Build:
-    - env
-    - git status
-    - echo production release of $DISTELLI_RELBRANCH
-    - if [[ "$(git tag -l --points-at HEAD)" != release-* ]]; then
-    -     echo "not a tagged commit; exiting without creating release"
-    -     exit 1
-    - else
-    -     echo "found release tag, creating release for automatic deployment..."
-    - fi
+    - echo "not doing anything :)"
 
   PreStart:
     - env
