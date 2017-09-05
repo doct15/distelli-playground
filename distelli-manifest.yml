@@ -36,7 +36,9 @@ nrowlan/distelli-playground:
     -     production-approval)
     -       env
     -       release_tag=release-$(date +%Y%m%d%H%M%S)
-    -       echo "tagging docker image br-$DISTELLI_RELBRANCH-$DISTELLI_RELVERSION-$DISTELLI_BUILDNUM-$DISTELLI_RELREVISION as $release_tag"
+    -       echo "tagging docker:
+                image br-$DISTELLI_RELBRANCH-$DISTELLI_RELVERSION-$DISTELLI_BUILDNUM-$DISTELLI_RELREVISION as
+                $release_tag"
     -       if ! cd "$APP_REPO_DIR"; then git clone $APP_REPO $APP_REPO_DIR; else git pull; fi
     -       cd $APP_REPO_DIR
     -       git -c advice.detachedHead=false checkout $DISTELLI_RELREVISION
@@ -45,6 +47,7 @@ nrowlan/distelli-playground:
     -       git checkout "$DISTELLI_RELBRANCH"
     -     ;;
     -     ?*)
-    -       echo "ERROR did not find manifest match for $DISTELLI_ENV"
+    -       echo "ERROR did not find manifest match for $DISTELLI_ENV:\
+              bad things happened!"
     -       exit 1
     - esac
