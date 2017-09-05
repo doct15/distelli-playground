@@ -9,9 +9,6 @@ nrowlan/distelli-playground-prod:
     - else
     -     echo "found release tag, creating release for automatic deployment..."
     - fi
-    -
-    - echo "pulling tag $DISTELLI_RELBRANCH (all layers should already exist)"
-    - git checkout -b $DISTELLI_RELBRANCH # workaround for tag build environment bug
 
   PreStart:
     - env
