@@ -44,4 +44,8 @@ nrowlan/distelli-playground:
     -       git push origin "$release_tag"
     -       git checkout "$DISTELLI_RELBRANCH"
     -     ;;
+    -     *)
+    -       echo "ERROR did not find manifest match for $DISTELLI_ENV"
+    -       exit 1
+    -     ;;
     - esac

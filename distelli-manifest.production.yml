@@ -3,7 +3,7 @@ nrowlan/distelli-playground-prod:
     - env
     - git status
     - echo production release of $DISTELLI_RELBRANCH
-    - if [[ "$(git tag -l --points-at HEAD)" == "" ]]; then
+    - if [[ "$(git tag -l --points-at HEAD)" != release-* ]]; then
     -     echo "not a tagged commit; exiting without creating release"
     -     exit 1
     - else
